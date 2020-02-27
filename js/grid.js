@@ -4,6 +4,11 @@ let grid = {
         elmnt.setAttribute('status', (grid.grid[pos]) ? 'wall' : 'blank');
     },
 
+    clearColors: function () {
+        for (let i = 0; i < grid.gridElmnts.length; i++) {
+            grid.gridElmnts[i].setAttribute('color', 'blank');
+        }
+    },
 
     setMode: function (value) {
         grid.mode = value;
@@ -38,6 +43,14 @@ for (let i = 0; i < grid.width * grid.height; i++) {
     elmnt.setAttribute('mode', 'edit');
     grid.gridElmnt.appendChild(elmnt);
     grid.gridElmnts.push(elmnt);
+
+    
+    elmnt.setAttribute('status', 'blank');
+    elmnt.addEventListener('mousedown', () => {
+        if (grid.mode != 'edit') return;
+        grid.drawmode = !grid.grid[i];
+        grid.click(elmnt, i, grid.drawmode);
+    });
 
     elmnt.addEventListener('mouseenter', (event) => {
         if (grid.mode != 'edit') return;
