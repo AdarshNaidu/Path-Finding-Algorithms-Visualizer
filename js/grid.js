@@ -17,6 +17,9 @@ let grid = {
         }
     },
 
+    setColor: function (pos, color) {
+        grid.gridElmnts[pos.toInt()].setAttribute('color', color);
+    },
 
     setDimensions: function (width, height) {
         grid.width = width;
@@ -44,14 +47,20 @@ for (let i = 0; i < grid.width * grid.height; i++) {
     grid.gridElmnt.appendChild(elmnt);
     grid.gridElmnts.push(elmnt);
 
-    
+    if (i == grid.startPos.toInt()) {
+        elmnt.setAttribute('status', 'start');
+        continue;
+    } else if (i == grid.goalPos.toInt()) {
+        elmnt.setAttribute('status', 'goal');
+        continue;
+    }
+
     elmnt.setAttribute('status', 'blank');
     elmnt.addEventListener('mousedown', () => {
         if (grid.mode != 'edit') return;
         grid.drawmode = !grid.grid[i];
         grid.click(elmnt, i, grid.drawmode);
     });
-
     elmnt.addEventListener('mouseenter', (event) => {
         if (grid.mode != 'edit') return;
         if (event.buttons == 1) {
