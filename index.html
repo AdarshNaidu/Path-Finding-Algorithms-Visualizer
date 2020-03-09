@@ -7,11 +7,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <button onclick="if (grid.mode == 'pathfind') return; bfs.run()">Breadth First Search</button>
+    <div id="controls">
+        <button onclick="if (grid.mode == 'pathfind') return; grid.setMode('edit'); grid.clearColors()">Edit</button>
+        <button onclick="if (grid.mode == 'pathfind') return; bfs.run()">Breadth First Search</button>
+        <button onclick="if (grid.mode == 'pathfind') return; dijkstra.run()">Dijkstra's Algorithm</button>
+        <button onclick="if (grid.mode == 'pathfind') return; astar.run()">A* Search</button>
+    </div>
     <div class="grid-container" ondragstart="return false;" ondrop="return false;"></div>
-    <script src="js/main.js"></script>
     <script src="js/pathfind.js"></script>
     <script src="js/pathfinding_algorithms/breadth_first_search.js"></script>
+    <script src="js/pathfinding_algorithms/djikstra.js"></script>
+    <script src="js/pathfinding_algorithms/astart.js"></script>
     <script src="js/heap.js"></script>
     <script src="js/grid.js"></script>
 </body>
