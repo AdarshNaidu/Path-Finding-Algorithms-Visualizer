@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Path Finding Algorithms Visualiser</title>
+
+    <!-- Styles import -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Scripts import -->
+    <script src="js/pathfind.js"></script>
+    <script src="js/heap.js"></script>
+    <script src="js/pathfinding_algorithms/breadth_first_search.js"></script>
+    <script src="js/pathfinding_algorithms/djikstra.js"></script>
+    <script src="js/pathfinding_algorithms/astart.js"></script>
 </head>
 <body>
     <div id="controls">
@@ -12,13 +21,9 @@
         <button onclick="if (grid.mode == 'pathfind') return; bfs.run()">Breadth First Search</button>
         <button onclick="if (grid.mode == 'pathfind') return; dijkstra.run()">Dijkstra's Algorithm</button>
         <button onclick="if (grid.mode == 'pathfind') return; astar.run()">A* Search</button>
+        <div id = "time">Time</div>
     </div>
     <div class="grid-container" ondragstart="return false;" ondrop="return false;"></div>
-    <script src="js/pathfind.js"></script>
-    <script src="js/pathfinding_algorithms/breadth_first_search.js"></script>
-    <script src="js/pathfinding_algorithms/djikstra.js"></script>
-    <script src="js/pathfinding_algorithms/astart.js"></script>
-    <script src="js/heap.js"></script>
     <script src="js/grid.js"></script>
 </body>
 </html>
