@@ -38,7 +38,6 @@ let dijkstra = {
 
         pathfind.end();
         let t2 = performance.now();
-        console.log("dijkstra's Took ", t2 - t1, "milliseconds")
         document.getElementById('time').innerText = `${t2-t1} milliseconds`;
     },
 }

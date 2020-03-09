@@ -35,7 +35,6 @@ let bfs = {
 
         pathfind.end();
         let t2 = performance.now();
-        console.log("bfs Took ", t2 - t1, "milliseconds")
         document.getElementById('time').innerText = `${t2-t1} milliseconds`;
     },
 }
